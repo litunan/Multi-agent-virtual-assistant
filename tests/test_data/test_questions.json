@@ -1,0 +1,78 @@
+{
+  "rag_test_questions": [
+    {
+      "id": "q1",
+      "question": "什么是抗癌肽？它的主要作用机制是什么？",
+      "expected_keywords": ["抗癌肽", "机制", "细胞", "肿瘤"],
+      "category": "definition"
+    },
+    {
+      "id": "q2", 
+      "question": "抗癌肽与传统化疗药物相比有哪些优势？",
+      "expected_keywords": ["选择性", "毒性", "耐药性"],
+      "category": "comparison"
+    },
+    {
+      "id": "q3",
+      "question": "如何预测一个肽序列是否具有抗癌活性？",
+      "expected_keywords": ["预测", "机器学习", "特征", "模型"],
+      "category": "method"
+    },
+    {
+      "id": "q4",
+      "question": "抗癌肽的细胞穿透机制有哪些类型？",
+      "expected_keywords": ["穿透", "膜", "内化", "机制"],
+      "category": "mechanism"
+    },
+    {
+      "id": "q5",
+      "question": "目前有哪些抗癌肽数据库可供研究使用？",
+      "expected_keywords": ["数据库", "资源", "信息"],
+      "category": "resource"
+    }
+  ],
+  "cross_agent_questions": [
+    {
+      "id": "ca1",
+      "question": "查询抗癌肽的基本信息，然后帮我保存一份笔记到文件",
+      "expected_agents": ["enhanced_rag_agent", "safe_file_agent"],
+      "description": "RAG → File Agent 跨域任务"
+    },
+    {
+      "id": "ca2",
+      "question": "查询北京的天气情况，并用Python绘制一个温度图表",
+      "expected_agents": ["enhanced_amap_agent", "enhanced_python_agent"],
+      "description": "AMAP → Python Agent 跨域任务"
+    },
+    {
+      "id": "ca3",
+      "question": "搜索北京市朝阳区的医院，然后把搜索结果保存到JSON文件",
+      "expected_agents": ["enhanced_amap_agent", "safe_file_agent"],
+      "description": "AMAP → File Agent 跨域任务"
+    },
+    {
+      "id": "ca4",
+      "question": "查询关于抗癌肽毒性的信息，然后用Python做一个数据分析",
+      "expected_agents": ["enhanced_rag_agent", "enhanced_python_agent"],
+      "description": "RAG → Python Agent 跨域任务"
+    },
+    {
+      "id": "ca5",
+      "question": "获取上海的经纬度坐标，计算到北京的距离，并保存结果",
+      "expected_agents": ["enhanced_amap_agent", "enhanced_python_agent", "safe_file_agent"],
+      "description": "三Agent协作任务"
+    }
+  ],
+  "long_conversation_context": [
+    "你好，我想了解抗癌肽的基础知识",
+    "那抗癌肽的主要分类有哪些？",
+    "你刚才提到的第一类，能详细说说吗？",
+    "这类抗癌肽的作用机制是什么？",
+    "有没有相关的临床试验数据？",
+    "那第二类呢？和第一类有什么区别？",
+    "能否总结一下我们刚才讨论的所有内容？",
+    "基于这些信息，你认为哪类更有研究前景？",
+    "如何设计一个新的抗癌肽？",
+    "能把我们的讨论内容保存成一份文档吗？"
+  ]
+}

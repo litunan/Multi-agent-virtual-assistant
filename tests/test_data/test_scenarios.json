@@ -1,0 +1,136 @@
+{
+  "supervisor_routing_tests": [
+    {
+      "id": "rt1",
+      "input": "北京今天天气怎么样？",
+      "expected_agent": "enhanced_amap_agent",
+      "category": "地理位置服务"
+    },
+    {
+      "id": "rt2",
+      "input": "帮我用Python画一个折线图",
+      "expected_agent": "enhanced_python_agent",
+      "category": "数据分析"
+    },
+    {
+      "id": "rt3",
+      "input": "什么是抗癌肽的选择性杀伤机制？",
+      "expected_agent": "enhanced_rag_agent",
+      "category": "RAG检索"
+    },
+    {
+      "id": "rt4",
+      "input": "读取workspace目录下的README文件",
+      "expected_agent": "safe_file_agent",
+      "category": "文件操作"
+    },
+    {
+      "id": "rt5",
+      "input": "执行ls命令查看当前目录",
+      "expected_agent": "terminal_command_agent",
+      "category": "终端命令"
+    },
+    {
+      "id": "rt6",
+      "input": "从天安门到北京大学怎么走？",
+      "expected_agent": "enhanced_amap_agent",
+      "category": "地理位置服务"
+    },
+    {
+      "id": "rt7",
+      "input": "创建一个包含100个随机数的列表并计算平均值",
+      "expected_agent": "enhanced_python_agent",
+      "category": "数据分析"
+    },
+    {
+      "id": "rt8",
+      "input": "抗癌肽数据库有哪些？",
+      "expected_agent": "enhanced_rag_agent",
+      "category": "RAG检索"
+    },
+    {
+      "id": "rt9",
+      "input": "在workspace/data目录创建一个config.json文件",
+      "expected_agent": "safe_file_agent",
+      "category": "文件操作"
+    },
+    {
+      "id": "rt10",
+      "input": "查看系统内存使用情况",
+      "expected_agent": "terminal_command_agent",
+      "category": "终端命令"
+    }
+  ],
+  "sandbox_attack_tests": [
+    {
+      "id": "sa1",
+      "path": "../../../etc/passwd",
+      "description": "路径遍历攻击 - 访问系统文件",
+      "should_block": true
+    },
+    {
+      "id": "sa2",
+      "path": "/etc/shadow",
+      "description": "绝对路径攻击 - 访问密码文件",
+      "should_block": true
+    },
+    {
+      "id": "sa3",
+      "path": "workspace/../../../root/.ssh/id_rsa",
+      "description": "混合路径遍历攻击",
+      "should_block": true
+    },
+    {
+      "id": "sa4",
+      "path": "workspace/documents/../../etc/hosts",
+      "description": "深层路径遍历攻击",
+      "should_block": true
+    },
+    {
+      "id": "sa5",
+      "path": "workspace/test.txt",
+      "description": "正常路径 - 应该允许",
+      "should_block": false
+    },
+    {
+      "id": "sa6",
+      "path": "workspace/data/config.json",
+      "description": "正常子目录路径 - 应该允许",
+      "should_block": false
+    },
+    {
+      "id": "sa7",
+      "path": ".env",
+      "description": "敏感文件名攻击",
+      "should_block": true
+    },
+    {
+      "id": "sa8",
+      "path": "workspace/private_key.txt",
+      "description": "敏感文件名模式攻击",
+      "should_block": true
+    },
+    {
+      "id": "sa9",
+      "path": "workspace/.ssh/config",
+      "description": "SSH配置文件攻击",
+      "should_block": true
+    },
+    {
+      "id": "sa10",
+      "path": "workspace/logs/app.log",
+      "description": "正常日志文件 - 应该允许",
+      "should_block": false
+    }
+  ],
+  "mcp_vs_traditional_tools": {
+    "description": "对比MCP标准化接口与传统@tool装饰器的开发效率",
+    "metrics": [
+      "代码行数",
+      "开发时间估算",
+      "接口一致性",
+      "错误处理标准化",
+      "文档自动生成"
+    ]
+  }
+}
